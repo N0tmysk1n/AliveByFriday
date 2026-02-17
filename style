@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bavarian Boost | Performance Division</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    display:flex;
+    background:#0a0a0a;
+    font-family:'Rajdhani', sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* CARBON FIBER BACKGROUND */
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    repeating-linear-gradient(
+        45deg,
+        #111 0px,
+        #111 2px,
+        #0d0d0d 2px,
+        #0d0d0d 4px
+    );
+    opacity:0.25;
+    z-index:-1;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width:260px;
+    height:100vh;
+    background:#000;
+    padding:30px 20px;
+    border-right:2px solid #1c69d4;
+    transition:0.4s;
+    position:fixed;
+}
+
+.sidebar.collapsed {
+    width:80px;
+}
+
+.logo {
+    font-family:'Orbitron', sans-serif;
+    font-size:18px;
+    letter-spacing:2px;
+    margin-bottom:50px;
+}
+
+.logo span:nth-child(1){color:#1c69d4;}
+.logo span:nth-child(2){color:#6a5acd;}
+.logo span:nth-child(3){color:#d40000;}
+
+.sidebar ul { list-style:none; }
+
+.sidebar li {
+    margin-bottom:25px;
+}
+
+.sidebar a {
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    display:block;
+    padding:10px;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.sidebar a:hover {
+    background:#111;
+    box-shadow:0 0 10px #1c69d4;
+}
+
+/* COLLAPSE BUTTON */
+.toggle-btn {
+    position:absolute;
+    top:20px;
+    right:-15px;
+    background:#1c69d4;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* MAIN CONTENT */
+.main {
+    margin-left:260px;
+    padding:60px;
+    width:100%;
+    transition:0.4s;
+}
+
+.sidebar.collapsed ~ .main {
+    margin-left:80px;
+}
+
+/* HEADER */
+.main h1 {
+    font-family:'Orbitron', sans-serif;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+/* TELEMETRY CARDS */
+.cards {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:30px;
+}
+
+.card {
+    background:#111;
+    padding:25px;
+    border:1px solid #222;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.card:hover {
+    border-color:#1c69d4;
+    box-shadow:0 0 15px #1c69d4;
+    transform:
